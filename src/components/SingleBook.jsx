@@ -21,19 +21,51 @@ class SingleBook extends Component {
     // Estraggo i dati del libro dalle props
     const { book } = this.props;
     // Applico uno stile condizionale se il libro è selezionato
-    const cardStyle = this.state.selected ? { border: "3px solid yellow" } : {};
+    const cardStyle = {
+      width: "14rem", // Larghezza fissa
+      height: "26rem", // Altezza fissa
+      display: "flex", // Per allineare il contenuto
+      flexDirection: "column", // Disposizione verticale
+      justifyContent: "space-between", // Spazio tra immagine e titolo
+      cursor: "pointer",
+      ...(this.state.selected ? { border: "3px solid yellow" } : {}),
+    };
+
+    // Stile per l'immagine per adattarla alla card
+    const imgStyle = {
+      height: "320px", // Altezza fissa per l'immagine
+      objectFit: "cover", // L'immagine si adatta senza deformarsi
+    };
+
+    // Stile per il titolo per troncare il testo lungo
+    const titleStyle = {
+      overflow: "hidden", // Nasconde il testo che esce
+      textOverflow: "ellipsis", // Mostra i puntini di sospensione
+      whiteSpace: "nowrap", // Impedisce l'andata a capo
+      width: "100%", // Occupa tutta la larghezza disponibile
+    };
 
     return (
-      <Card
-        style={{ width: "14rem", ...cardStyle, cursor: "pointer" }}
-        className="mb-3"
-        onClick={this.handleSelect}
-      >
+      <Card style={cardStyle} className="mb-3" onClick={this.handleSelect}>
         {/* Mostro la copertina del libro */}
-        <Card.Img variant="top" src={book.img} alt={book.title} />
-        <Card.Body>
+        <Card.Img
+          variant="top"
+          src={book.img}
+          alt={book.title}
+          style={imgStyle}
+        />
+        <Card.Body
+          style={{
+            flexGrow: 1,
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
           {/* Mostro il titolo del libro */}
-          <Card.Title>{book.title}</Card.Title>
+          <Card.Title className="text-center" style={titleStyle}>
+            {book.title}
+          </Card.Title>
         </Card.Body>
       </Card>
     );
