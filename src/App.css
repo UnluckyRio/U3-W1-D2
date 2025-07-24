@@ -86,3 +86,123 @@ body {
 .app-container > *:not(:last-child) {
   margin-bottom: 24px;
 }
+
+/* --- Commenti: area, lista, singolo, form --- */
+.comment-area {
+  background: #f7fafc;
+  border-radius: 14px;
+  box-shadow: 0 2px 12px 0 rgba(31, 38, 135, 0.08);
+  padding: 20px 18px 14px 18px;
+  margin-top: 12px;
+  margin-bottom: 8px;
+  font-family: "Montserrat", "Segoe UI", "Roboto", "Arial", sans-serif;
+}
+
+.comments-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 18px 0;
+}
+
+.comments-list li {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 1px 6px 0 rgba(31, 38, 135, 0.07);
+  margin-bottom: 12px;
+  padding: 12px 14px 10px 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: box-shadow 0.15s;
+}
+.comments-list li:hover {
+  box-shadow: 0 2px 12px 0 rgba(31, 38, 135, 0.13);
+}
+
+.single-comment p {
+  margin: 0 0 4px 0;
+  font-size: 1rem;
+  color: #222;
+}
+.single-comment span {
+  font-size: 0.95rem;
+  color: #ffd700;
+  font-weight: 600;
+}
+
+.comments-list button {
+  background: #ffd700;
+  color: #222;
+  border: none;
+  border-radius: 6px;
+  padding: 5px 12px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: background 0.18s;
+  margin-left: 12px;
+}
+.comments-list button:hover {
+  background: #e6c200;
+}
+
+.add-comment-form {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-top: 10px;
+}
+.add-comment-form input[type="text"] {
+  flex: 1;
+  border: 1px solid #cfdef3;
+  border-radius: 6px;
+  padding: 6px 10px;
+  font-size: 1rem;
+  background: #f7fafc;
+  transition: border 0.15s;
+}
+.add-comment-form input[type="text"]:focus {
+  border: 1.5px solid #ffd700;
+  outline: none;
+}
+.add-comment-form select {
+  border-radius: 6px;
+  border: 1px solid #cfdef3;
+  padding: 6px 8px;
+  font-size: 1rem;
+  background: #fff;
+}
+.add-comment-form button[type="submit"] {
+  background: #ffd700;
+  color: #222;
+  border: none;
+  border-radius: 6px;
+  padding: 6px 14px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.18s;
+}
+.add-comment-form button[type="submit"]:hover {
+  background: #e6c200;
+}
+
+/* Loading & Error component */
+.comment-area .loading,
+.comment-area .error {
+  text-align: center;
+  margin: 12px 0;
+  font-size: 1.05rem;
+}
+.comment-area .error {
+  color: #d32f2f;
+  background: #ffeaea;
+  border-radius: 8px;
+  padding: 8px 0;
+}
+.comment-area .loading {
+  color: #222;
+  background: #fffbe6;
+  border-radius: 8px;
+  padding: 8px 0;
+}

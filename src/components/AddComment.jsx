@@ -54,11 +54,16 @@ const AddComment = ({ asin, onAdd }) => {
         type="text"
         value={comment}
         onChange={(e) => setComment(e.target.value)}
-        placeholder="Scrivi un commento..."
+        placeholder="Scrivi qui la tua recensione..."
         required
+        aria-label="Testo del commento"
       />
       {/* Select per il voto */}
-      <select value={rate} onChange={(e) => setRate(e.target.value)}>
+      <select
+        value={rate}
+        onChange={(e) => setRate(e.target.value)}
+        aria-label="Voto"
+      >
         <option value="1">1</option>
         <option value="2">2</option>
         <option value="3">3</option>
@@ -66,11 +71,27 @@ const AddComment = ({ asin, onAdd }) => {
         <option value="5">5</option>
       </select>
       {/* Bottone per inviare il commento */}
-      <button type="submit" disabled={isLoading}>
-        {isLoading ? "Invio..." : "Aggiungi commento"}
+      <button type="submit" disabled={isLoading} aria-label="Aggiungi commento">
+        {isLoading ? (
+          <>
+            <span role="img" aria-label="loading" style={{ marginRight: 4 }}>
+              ⏳
+            </span>
+            Invio...
+          </>
+        ) : (
+          <>
+            <span role="img" aria-label="aggiungi" style={{ marginRight: 4 }}>
+              ➕
+            </span>
+            Aggiungi
+          </>
+        )}
       </button>
       {/* Mostro l'errore se presente */}
-      {isError && <div>Errore nell'aggiunta del commento</div>}
+      {isError && (
+        <div className="error">Errore nell'aggiunta del commento</div>
+      )}
     </form>
   );
 };

@@ -8,9 +8,17 @@ const CommentsList = ({ comments, onDelete }) => {
       {/* Ciclo su tutti i commenti e li mostro */}
       {comments.map((comment) => (
         <li key={comment._id}>
-          <SingleComment comment={comment} />
-          {/* Bottone per cancellare il commento */}
-          <button onClick={() => onDelete(comment._id)}>Elimina</button>
+          <div style={{ flex: 1 }}>
+            <SingleComment comment={comment} />
+          </div>
+          {/* Bottone per cancellare il commento con icona */}
+          <button
+            onClick={() => onDelete(comment._id)}
+            aria-label="Elimina commento"
+            title="Elimina commento"
+          >
+            🗑
+          </button>
         </li>
       ))}
     </ul>
