@@ -1,6 +1,7 @@
 import React, { Component } from "react"; // Importo React e Component
 import Card from "react-bootstrap/Card"; // Importo Card da react-bootstrap
 import "bootstrap/dist/css/bootstrap.min.css"; // Importo lo stile di Bootstrap
+import CommentArea from "./CommentArea"; // Importo il componente CommentArea
 
 // Componente che mostra un singolo libro e gestisce la selezione
 class SingleBook extends Component {
@@ -46,28 +47,32 @@ class SingleBook extends Component {
     };
 
     return (
-      <Card style={cardStyle} className="mb-3" onClick={this.handleSelect}>
-        {/* Mostro la copertina del libro */}
-        <Card.Img
-          variant="top"
-          src={book.img}
-          alt={book.title}
-          style={imgStyle}
-        />
-        <Card.Body
-          style={{
-            flexGrow: 1,
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-          }}
-        >
-          {/* Mostro il titolo del libro */}
-          <Card.Title className="text-center" style={titleStyle}>
-            {book.title}
-          </Card.Title>
-        </Card.Body>
-      </Card>
+      <>
+        <Card style={cardStyle} className="mb-3" onClick={this.handleSelect}>
+          {/* Mostro la copertina del libro */}
+          <Card.Img
+            variant="top"
+            src={book.img}
+            alt={book.title}
+            style={imgStyle}
+          />
+          <Card.Body
+            style={{
+              flexGrow: 1,
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            {/* Mostro il titolo del libro */}
+            <Card.Title className="text-center" style={titleStyle}>
+              {book.title}
+            </Card.Title>
+          </Card.Body>
+        </Card>
+        {/* Mostro CommentArea solo se il libro è selezionato */}
+        {this.state.selected && <CommentArea asin={book.asin} />}
+      </>
     );
   }
 }
