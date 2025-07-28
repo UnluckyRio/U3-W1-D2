@@ -24,7 +24,7 @@ const AddComment = ({ asin, onAdd }) => {
           headers: {
             "Content-Type": "application/json",
             Authorization:
-              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODcwYzQ3MDc4Y2RkZjAwMTU1ZDY3YTUiLCJpYXQiOjE3NTMzNTc1OTIsImV4cCI6MTc1NDU2NzE5Mn0.7XMTNRRJo0rrE5aYu-EeRqf0V8R5VFOiSMM_iY4sj_A",
+              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODcwYzQ3MDc4Y2RkZjAwMTU1ZDY3YTUiLCJpYXQiOjE3NTM3MDc5NTIsImV4cCI6MTc1NDkxNzU1Mn0.lFP_C7O8r2Qqe8R--KEpqQCfhVwpoCca48YoOW2_Tdg",
           },
           body: JSON.stringify({
             comment,
