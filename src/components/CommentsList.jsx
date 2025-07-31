@@ -4,7 +4,7 @@ import SingleComment from "./SingleComment"; // Componente per il singolo commen
 // Componente che mostra la lista dei commenti
 const CommentsList = ({ comments, onDelete }) => {
   return (
-    <ul className="comments-list">
+    <ul className="comments-list" data-testid="comments-list">
       {/* Ciclo su tutti i commenti e li mostro */}
       {comments.map((comment) => (
         <li key={comment._id}>

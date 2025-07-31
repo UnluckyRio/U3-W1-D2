@@ -76,7 +76,7 @@ const CommentArea = ({ asin }) => {
   };
 
   return (
-    <div className="comment-area">
+    <div className="comment-area" data-testid="comment-area">
       {/* Mostro un messaggio se nessun libro è selezionato */}
       {!asin && (
         <div className="alert alert-info">

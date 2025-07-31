@@ -30,7 +30,12 @@ const SingleBook = ({ book, selected, onClick }) => {
   };
 
   return (
-    <Card style={cardStyle} className="mb-3" onClick={onClick}>
+    <Card 
+      style={cardStyle} 
+      className={`mb-3 ${selected ? 'selected' : ''}`} 
+      onClick={onClick}
+      data-testid={`book-${book.asin}`}
+    >
       {/* Mostro la copertina del libro */}
       <Card.Img
         variant="top"
